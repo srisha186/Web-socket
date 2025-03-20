@@ -49,6 +49,9 @@ export class WebSocketGatewayService
     }
 
     console.log(`Received message: ${data.message} from ${data.sender}`);
-    this.server.emit('message', data);
+    this.server.emit('response', {
+      sender: 'Server',
+      message: `${data.message}`,
+    });
   }
 }
